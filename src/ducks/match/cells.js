@@ -36,7 +36,7 @@ function makeCells(h, w) {
 
   for (let y of Array(h).keys()) {
     for (let x of Array(w).keys()) {
-      cells = cells.concat(BoardElement(x, y, NO_COLOR));
+      cells = cells.concat(BoardElement(x * 2 + 1, y * 2 + 1, NO_COLOR));
     }
   }
 
