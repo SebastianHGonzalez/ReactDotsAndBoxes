@@ -9,15 +9,17 @@ import { actions, selectors } from "ducks";
 const Board = ({ height, width, initializeBoard, cells }) => {
   useEffect(() => {
     initializeBoard(width, height);
-  }, [ initializeBoard, width, height ]);
+  }, [initializeBoard, width, height]);
 
   return (
     <div className="board">
-      <Grid>
+      <Grid rows={height * 2 + 1} columns={width * 2 + 1}>
         {cells.map(({ x, y, color }) => (
           <Cell key={`${x}-${y}`} column={x} row={y}>
             <ColoredBackground color={color}>
-              x:{x} y:{y} color:{color}
+              x: {x} <br/> 
+              y: {y} <br/>
+              color: {color}
             </ColoredBackground>
           </Cell>
         ))}
