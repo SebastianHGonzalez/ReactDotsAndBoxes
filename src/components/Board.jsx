@@ -1,20 +1,27 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+import ColoredBackground from "components/ColoredBackground";
+import Cell from "components/Cell";
+import Grid from "components/Grid";
 import { actions, selectors } from "ducks";
 
 const Board = ({ height, width, initializeBoard, cells }) => {
-  useEffect(() => initializeBoard(width, height), [height, width]);
+  useEffect(() => {
+    initializeBoard(width, height);
+  }, [ initializeBoard, width, height ]);
 
   return (
     <div className="board">
-      {cells.map(c => (
-        <div>
-          <span>x: {c.x}</span>
-          <span>y: {c.y}</span>
-          <span>color: {c.color}</span>
-        </div>
-      ))}
+      <Grid>
+        {cells.map(({ x, y, color }) => (
+          <Cell key={`${x}-${y}`} column={x} row={y}>
+            <ColoredBackground color={color}>
+              x:{x} y:{y} color:{color}
+            </ColoredBackground>
+          </Cell>
+        ))}
+      </Grid>
     </div>
   );
 };
