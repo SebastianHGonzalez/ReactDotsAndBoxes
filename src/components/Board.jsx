@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { actions as boardActions } from "ducks/match/board";
+import { actions, selectors } from "ducks";
 
 const Board = ({ height, width, initializeBoard, cells }) => {
   useEffect(() => initializeBoard(width, height), [height, width]);
@@ -21,13 +21,13 @@ const Board = ({ height, width, initializeBoard, cells }) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    initializeBoard: (h, w) => dispatch(boardActions.initializeBoard(h, w))
+    initializeBoard: (h, w) => dispatch(actions.initializeBoard(h, w))
   };
 }
 
 function mapStateToProps(state) {
   return {
-    cells: state.match.board.edges
+    cells: selectors.boardElementsSelector(state)
   };
 }
 
