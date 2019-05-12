@@ -1,6 +1,6 @@
-import { types as boardTypes } from "./board";
-import { BoardElement } from "../../utils/board";
-import { NO_COLOR } from "../../utils/colors";
+import { types as boardTypes } from "ducks/match/board";
+import { BoardElement } from "utils/board";
+import { NO_COLOR } from "utils/colors";
 
 export const types = {
   COLOR_EDGE: "edges/COLOR_EDGE"

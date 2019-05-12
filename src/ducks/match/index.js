@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import board from "./board";
-import turn from "./turn";
+import board from "ducks/match/board";
+import turn from "ducks/match/turn";
 
 const matchReducer = combineReducers({ board, turn });
 

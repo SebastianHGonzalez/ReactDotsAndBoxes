@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import cells from "./cells";
-import edges from "./edges";
+import cells from "ducks/match/cells";
+import edges from "ducks/match/edges";
 
 export const types = {
   INIT_BOARD: "board/INIT_BOARD"

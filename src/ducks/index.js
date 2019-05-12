@@ -1,13 +1,6 @@
 import { combineReducers } from "redux";
-import match from "./match"
+import match from "ducks/match";
 
-const rootReducer = combineReducers ({match})
+const rootReducer = combineReducers({ match });
 
-
-
-
-
-
-
-export default rootReducer
-
+export default rootReducer;

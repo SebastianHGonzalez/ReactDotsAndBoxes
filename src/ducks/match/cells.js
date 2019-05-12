@@ -1,6 +1,6 @@
 import { types as boardTypes } from "./board";
-import { BoardElement } from "../../utils/board";
-import { NO_COLOR } from "../../utils/colors";
+import { BoardElement } from "utils/board";
+import { NO_COLOR } from "utils/colors";
 
 export const types = {
   COLOR_CELL: "cells/COLOR_CELL"
