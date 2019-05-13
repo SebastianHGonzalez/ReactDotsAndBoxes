@@ -1,6 +1,16 @@
-import rootReducer from "ducks";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(rootReducer)
+import reducer from "ducks";
+
+const middleware = [];
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(
+    applyMiddleware(...middleware)
+    // other store enhancers if any
+  )
+);
 
 export default store;
