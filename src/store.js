@@ -1,9 +1,14 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import createSagaMiddleware from 'redux-saga';
 
-import reducer from "ducks";
+import reducer, { saga } from "ducks";
 
-const middleware = [];
+const sagaMiddleware = createSagaMiddleware()
+
+const middleware = [
+  sagaMiddleware,
+];
 
 const store = createStore(
   reducer,
@@ -12,5 +17,7 @@ const store = createStore(
     // other store enhancers if any
   )
 );
+
+sagaMiddleware.run(saga);
 
 export default store;

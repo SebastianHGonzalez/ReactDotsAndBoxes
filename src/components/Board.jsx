@@ -6,10 +6,10 @@ import Cell from "components/Cell";
 import Grid from "components/Grid";
 import { actions, selectors } from "ducks";
 
-const Board = ({ height, width, initializeBoard, cells, edgeSelected }) => {
+const Board = ({ height, width, startMatch, cells, edgeSelected }) => {
   useEffect(() => {
-    initializeBoard(width, height);
-  }, [initializeBoard, width, height]);
+    startMatch(2, height, width);
+  }, [startMatch, width, height]);
 
   return (
     <div
@@ -33,7 +33,7 @@ const Board = ({ height, width, initializeBoard, cells, edgeSelected }) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    initializeBoard: (h, w) => dispatch(actions.initializeBoard(h, w)),
+    startMatch: (...args) => dispatch(actions.startMatch(...args)),
     edgeSelected: (...args) => dispatch(actions.edgeSelected(...args))
   };
 }

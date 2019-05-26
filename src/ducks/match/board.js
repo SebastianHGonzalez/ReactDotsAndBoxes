@@ -3,15 +3,19 @@ import { createSelector } from "reselect";
 
 import cells, {
   selectors as cellsSelectors,
-  actions as cellsActions
+  actions as cellsActions,
+  types as cellTypes,
 } from "ducks/match/cells";
 import edges, {
   selectors as edgesSelectors,
-  actions as edgesActions
+  actions as edgesActions,
+  types as edgeTypes,
 } from "ducks/match/edges";
 
 export const types = {
-  INIT_BOARD: "board/INIT_BOARD"
+  ...cellTypes,
+  ...edgeTypes,
+  INIT_BOARD: "board/INIT_BOARD",
 };
 
 export const actions = {

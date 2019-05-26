@@ -4,12 +4,12 @@ import { NO_COLOR } from "utils/colors";
 
 export const types = {
   COLOR_EDGE: "edges/COLOR_EDGE",
-  EDGE_SELECTED: "edges/EDGE_SELECTED",
+  EDGE_SELECTED: "edges/EDGE_SELECTED"
 };
 
 export const actions = {
-  colorEdge: (x, y, color) => ({type: types.COLOR_EDGE, x, y, color}),
-  edgeSelected: (x,y) => ({type: types.EDGE_SELECTED, x, y}),
+  colorEdge: (x, y, color) => ({ type: types.COLOR_EDGE, x, y, color }),
+  edgeSelected: (x, y) => ({ type: types.EDGE_SELECTED, x, y })
 };
 
 export const selectors = {
@@ -22,6 +22,11 @@ function edgesReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case boardTypes.INIT_BOARD:
       return makeEdges(action.height, action.width);
+
+    case types.COLOR_EDGE:
+      return state
+        .filter(edge => edge.x !== action.x || edge.y !== action.y)
+        .concat(BoardElement("edge", action.x, action.y, action.color));
 
     default:
       return state;
