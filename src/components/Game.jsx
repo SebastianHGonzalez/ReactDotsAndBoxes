@@ -6,19 +6,15 @@ import ScoreBoard from "components/ScoreBoard";
 import MainMenu from "components/MainMenu";
 
 function Game() {
-  const [gameConfig, setGameConfig] = useState(null)
+  const [gameConfig, setGameConfig] = useState(null);
 
-  return (
-    <div style={{ margin: "auto", width: "80vw", height: "80vh" }}>
-      {gameConfig ? (
-        <TurnIndicator>
-          <ScoreBoard />
-          <Board {...gameConfig} onFinish={() => setGameConfig(null)} />
-        </TurnIndicator>
-      ) : (
-        <MainMenu onGameStart={setGameConfig} />
-      )}
-    </div>
+  return gameConfig ? (
+    <TurnIndicator>
+      <ScoreBoard />
+      <Board {...gameConfig} onFinish={() => setGameConfig(null)} />
+    </TurnIndicator>
+  ) : (
+    <MainMenu onGameStart={setGameConfig} />
   );
 }
 

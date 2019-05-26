@@ -1,5 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Formik, Form, Field } from "formik";
+
+import { Label, Button, Input, FormInputGroup } from "components/style";
 
 import { COLORS } from "utils/colors";
 
@@ -16,31 +18,21 @@ const NumberCarrousel = ({
   const increment = () => onChange({ target: { name, value: value + 1 } });
 
   return (
-    <Fragment>
-      {label && <label htmlFor={name}>{label}</label>}
-      <div>
-        <input
-          type="button"
-          onClick={decrement}
-          value="-"
-          disabled={isLowest}
-        />
-        <input type="number" readOnly name={name} value={value} />
-        <input
-          type="button"
-          onClick={increment}
-          value="+"
-          disabled={isHighest}
-        />
-      </div>
-    </Fragment>
+    <FormInputGroup>
+      {label && <Label htmlFor={name}>{label}</Label>}
+      <FormInputGroup>
+        <Button onClick={decrement} value="-" disabled={isLowest} />
+        <Input type="number" readOnly name={name} value={value} />
+        <Button onClick={increment} value="+" disabled={isHighest} />
+      </FormInputGroup>
+    </FormInputGroup>
   );
 };
 
 const MainMenu = ({ onGameStart }) => (
   <Formik
     initialValues={{ players: 2, height: 8, width: 8 }}
-    onSubmit={onGameStart}
+    onSubmit={gameConfig => onGameStart(gameConfig)}
   >
     <Form>
       <Field
@@ -64,7 +56,7 @@ const MainMenu = ({ onGameStart }) => (
         lowest={2}
         highest={12}
       />
-      <Field type="submit" value="Play" />
+      <Button type="submit" value="Play" />
     </Form>
   </Formik>
 );
