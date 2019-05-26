@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import ColoredBackground from "components/ColoredBackground";
 import Cell from "components/Cell";
 import Grid from "components/Grid";
 import { actions, selectors } from "ducks";
+import { NO_COLOR } from "utils/colors";
 
 const Board = ({ height, width, startMatch, cells, edgeSelected }) => {
   useEffect(() => {
@@ -18,13 +18,18 @@ const Board = ({ height, width, startMatch, cells, edgeSelected }) => {
     >
       <Grid rows={height * 2 + 1} columns={width * 2 + 1}>
         {cells.map(({ type, x, y, color }) => (
-          <Cell key={`${x}-${y}`} type={type} column={x} row={y}>
-            <ColoredBackground
-              color={color}
-              borderColor={type === "cell" ? "red" : "gray"}
-              onClick={type === "edge" ? () => edgeSelected(x, y) : undefined}
-            />
-          </Cell>
+          <Cell
+            key={`${x}-${y}`}
+            color={color}
+            onClick={
+              type === "edge" && color === NO_COLOR
+                ? () => edgeSelected(x, y)
+                : undefined
+            }
+            type={type}
+            column={x}
+            row={y}
+          />
         ))}
       </Grid>
     </div>
