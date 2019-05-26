@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/ReactDotsAndBoxes/static/js/main.c5e6766e.chunk.js",
-    "main.js.map": "/ReactDotsAndBoxes/static/js/main.c5e6766e.chunk.js.map",
+    "main.js": "/ReactDotsAndBoxes/static/js/main.fe4c6b84.chunk.js",
+    "main.js.map": "/ReactDotsAndBoxes/static/js/main.fe4c6b84.chunk.js.map",
     "runtime~main.js": "/ReactDotsAndBoxes/static/js/runtime~main.50c72c63.js",
     "runtime~main.js.map": "/ReactDotsAndBoxes/static/js/runtime~main.50c72c63.js.map",
-    "static/js/2.29e115ef.chunk.js": "/ReactDotsAndBoxes/static/js/2.29e115ef.chunk.js",
-    "static/js/2.29e115ef.chunk.js.map": "/ReactDotsAndBoxes/static/js/2.29e115ef.chunk.js.map",
+    "static/js/2.4566b5cb.chunk.js": "/ReactDotsAndBoxes/static/js/2.4566b5cb.chunk.js",
+    "static/js/2.4566b5cb.chunk.js.map": "/ReactDotsAndBoxes/static/js/2.4566b5cb.chunk.js.map",
     "index.html": "/ReactDotsAndBoxes/index.html",
-    "precache-manifest.79dddaa0a2c433c0606dd10edc702efa.js": "/ReactDotsAndBoxes/precache-manifest.79dddaa0a2c433c0606dd10edc702efa.js",
+    "precache-manifest.daffb7a5bdc51e5c46ae32d4e9cd2508.js": "/ReactDotsAndBoxes/precache-manifest.daffb7a5bdc51e5c46ae32d4e9cd2508.js",
     "service-worker.js": "/ReactDotsAndBoxes/service-worker.js"
   }
 }
