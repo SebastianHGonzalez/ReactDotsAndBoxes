@@ -6,8 +6,7 @@ import ScoreBoard from "components/ScoreBoard";
 function Game(props) {
   return (
     <div
-      className="board"
-      style={{ padding: "1rem", width: "50vw", height: "50vw" }}
+      style={{ margin: "auto", width: "80vw", height: "80vh" }}
     >
       <TurnIndicator>
         <ScoreBoard />
