@@ -24,7 +24,7 @@ function cellsReducer(state = INITIAL_STATE, action) {
       return state
         .filter(cell => cell.x === action.x && cell.y === action.y)
         .concat(
-          BoardElement(action.position.x, action.position.y, action.color)
+          BoardElement("cell", action.position.x, action.position.y, action.color)
         );
     default:
       return state;
@@ -36,7 +36,7 @@ function makeCells(h, w) {
 
   for (let y of Array(h).keys()) {
     for (let x of Array(w).keys()) {
-      cells = cells.concat(BoardElement(x * 2 + 1, y * 2 + 1, NO_COLOR));
+      cells = cells.concat(BoardElement("cell", x * 2 + 1, y * 2 + 1, NO_COLOR));
     }
   }
 

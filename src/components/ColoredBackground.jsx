@@ -1,10 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 
-const ColoredDiv = styled.div`
-width: 100px;
-height: 100px;
-background-color: ${({ color }) => color};
+export default styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${({ color }) => color};
+  border: ${({ borderColor }) => borderColor} 0.1rem dotted;
 `;
-
-export default ({children}) => <ColoredDiv color="red" >{children}</ColoredDiv>

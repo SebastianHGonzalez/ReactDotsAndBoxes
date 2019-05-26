@@ -12,15 +12,17 @@ const Board = ({ height, width, initializeBoard, cells }) => {
   }, [initializeBoard, width, height]);
 
   return (
-    <div className="board">
+    <div
+      className="board"
+      style={{ padding: "1rem", width: "50vw", height: "50vw" }}
+    >
       <Grid rows={height * 2 + 1} columns={width * 2 + 1}>
-        {cells.map(({ x, y, color }) => (
-          <Cell key={`${x}-${y}`} column={x} row={y}>
-            <ColoredBackground color={color}>
-              x: {x} <br/> 
-              y: {y} <br/>
-              color: {color}
-            </ColoredBackground>
+        {cells.map(({ type, x, y, color }) => (
+          <Cell key={`${x}-${y}`} type={type} column={x} row={y}>
+            <ColoredBackground
+              color={color}
+              borderColor={type === "cell" ? "red" : "gray"}
+            />
           </Cell>
         ))}
       </Grid>

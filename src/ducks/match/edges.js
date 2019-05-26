@@ -33,7 +33,7 @@ function makeEdges(h, w) {
   for (let y of Array(height).keys()) {
     for (let x of Array(width).keys()) {
       if (isValid(x, y)) {
-        edges.push(BoardElement(x, y, NO_COLOR));
+        edges.push(BoardElement("edge", x, y, NO_COLOR));
       }
     }
   }
