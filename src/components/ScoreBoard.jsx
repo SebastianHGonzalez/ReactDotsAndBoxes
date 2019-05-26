@@ -7,13 +7,22 @@ import { selectors } from "ducks";
 import { colorForPlayerBackground } from "utils/colors";
 import { playerScore } from "utils/board";
 
-const ScoreBoardTable = styled.div`
+const ScoreBoardTable = styled.div.attrs(({ upsideDown }) => ({
+  style: {
+    transform: upsideDown && "rotate(180deg)"
+  }
+}))`
   grid-auto-flow: column;
   display: grid;
 `;
 
-const ScoreBoard = ({ currentPlayer, totalPlayers, coloredCells }) => (
-  <ScoreBoardTable>
+const ScoreBoard = ({
+  currentPlayer,
+  totalPlayers,
+  coloredCells,
+  upsideDown
+}) => (
+  <ScoreBoardTable upsideDown={upsideDown}>
     {Array.from(Array(totalPlayers).keys()).map(player => (
       <div
         key={player}

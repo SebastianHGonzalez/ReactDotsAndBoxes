@@ -13,7 +13,7 @@ const TurnIndicator = styled.div.attrs(({ playerColor }) => ({
   height: 100%;
   transition: background-color 300ms cubic-bezier(0, 0.5, 0.5, 1);
   display: grid;
-  grid-template-rows: 2rem;
+  grid-template-rows: 2rem 1fr 2rem;
   gap: 0.2rem;
   `;
 

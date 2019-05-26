@@ -12,6 +12,7 @@ function Game() {
     <TurnIndicator>
       <ScoreBoard />
       <Board {...gameConfig} onFinish={() => setGameConfig(null)} />
+      <ScoreBoard upsideDown />
     </TurnIndicator>
   ) : (
     <MainMenu onGameStart={setGameConfig} />
