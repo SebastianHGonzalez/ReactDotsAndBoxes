@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Cell from "components/Cell";
+import Edge from "components/Edge";
 import Grid from "components/Grid";
 import { actions, selectors } from "ducks";
 import { NO_COLOR } from "utils/colors";
@@ -27,7 +28,7 @@ const Board = ({
         <Cell key={id} color={color} type={type} column={x} row={y} />
       ))}
       {edges.map(({ id, type, x, y, color }) => (
-        <Cell
+        <Edge
           key={id}
           color={color}
           type={type}

@@ -18,7 +18,7 @@ const ScoreBoard = ({ currentPlayer, totalPlayers, coloredCells }) => (
       <div
         key={player}
         style={{
-          border: player === currentPlayer ? `black 0.1rem dotted` : "",
+          border: player === currentPlayer ? `black 0.001rem solid` : "",
           backgroundColor: colorForPlayerBackground(player)
         }}
       >

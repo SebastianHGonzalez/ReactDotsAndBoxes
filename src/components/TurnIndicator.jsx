@@ -14,6 +14,7 @@ const TurnIndicator = styled.div.attrs(({ playerColor }) => ({
   transition: background-color 300ms cubic-bezier(0, 0.5, 0.5, 1);
   display: grid;
   grid-template-rows: 2rem;
+  gap: 0.2rem;
   `;
 
 const mapStateToProps = state => ({

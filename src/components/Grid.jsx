@@ -4,6 +4,7 @@ const Grid = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+  gap: 0.2rem;
   grid-template-columns:
     repeat(${({ columns }) => Math.floor(columns / 2)}, 1fr 2fr)
     1fr;

@@ -5,10 +5,10 @@ export default styled.div.attrs(({ column, row, color, type }) => ({
     gridColumnStart: column + 1,
     gridRowStart: row + 1,
     backgroundColor: color,
-    borderColor: type === "cell" ? "red" : "gray"
   }
 }))`
   width: 100%;
   height: 100%;
-  border: 0.1rem dotted;
+  border: 0.001rem black solid;
+  transition: background-color 200ms cubic-bezier(0, 0.9, 0.7, 1);
 `;
