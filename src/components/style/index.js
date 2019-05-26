@@ -27,7 +27,7 @@ export const Input = styled.input`
     border: var(--brand-primary-text) 10px 10px;
 
     &:hover {
-        background-color: var(--brand-primary-light);    
+      background-color: var(--brand-primary-light);
     }
   }
 `;
@@ -47,4 +47,8 @@ export const FormInputGroup = styled.div`
     flex: 1 1 auto;
     flex-direction: row;
   }
+`;
+
+export const Span = styled.span`
+  margin: auto;
 `;

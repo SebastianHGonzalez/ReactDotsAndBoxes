@@ -5,6 +5,8 @@ import { Label, Button, Input, FormInputGroup } from "components/style";
 
 import { COLORS } from "utils/colors";
 
+const defaultGameConfig = { players: 2, height: 8, width: 6 };
+
 const NumberCarrousel = ({
   lowest,
   highest,
@@ -31,7 +33,7 @@ const NumberCarrousel = ({
 
 const MainMenu = ({ onGameStart }) => (
   <Formik
-    initialValues={{ players: 2, height: 8, width: 8 }}
+    initialValues={defaultGameConfig}
     onSubmit={gameConfig => onGameStart(gameConfig)}
   >
     <Form>
