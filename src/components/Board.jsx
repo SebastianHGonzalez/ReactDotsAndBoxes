@@ -12,27 +12,22 @@ const Board = ({ height, width, startMatch, cells, edgeSelected }) => {
   }, [startMatch, width, height]);
 
   return (
-    <div
-      className="board"
-      style={{ padding: "1rem", width: "50vw", height: "50vw" }}
-    >
-      <Grid rows={height * 2 + 1} columns={width * 2 + 1}>
-        {cells.map(({ type, x, y, color }) => (
-          <Cell
-            key={`${x}-${y}`}
-            color={color}
-            onClick={
-              type === "edge" && color === NO_COLOR
-                ? () => edgeSelected(x, y)
-                : undefined
-            }
-            type={type}
-            column={x}
-            row={y}
-          />
-        ))}
-      </Grid>
-    </div>
+    <Grid rows={height * 2 + 1} columns={width * 2 + 1}>
+      {cells.map(({ type, x, y, color }) => (
+        <Cell
+          key={`${x}-${y}`}
+          color={color}
+          onClick={
+            type === "edge" && color === NO_COLOR
+              ? () => edgeSelected(x, y)
+              : undefined
+          }
+          type={type}
+          column={x}
+          row={y}
+        />
+      ))}
+    </Grid>
   );
 };
 

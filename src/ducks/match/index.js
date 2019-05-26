@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { takeLatest, put, take, select } from "redux-saga/effects";
 
+import { selectors as duckSelectors } from "ducks";
 import { NO_COLOR, colorForPlayer } from "utils/colors";
 import { adjacentPositions } from "utils/board";
 import { calculateWinner, NO_WINNER } from "utils/match";
@@ -43,7 +44,7 @@ export const selectors = {
   boardElementsSelector: state =>
     boardSelectors.boardElementsSelector(state.board),
   winnerSelector: state => state.match.winner,
-  currentPlayerSelector: state => state.match.turn 
+  currentPlayerSelector: state => state.turn 
 };
 
 function winnerReducer(state = NO_WINNER, action) {
@@ -102,7 +103,7 @@ function* updateCellsAroundEdgeAt({ playerAmount, x, y }) {
     return filledAdjEdges.length === adjEdges.length;
   });
 
-  const currentPlayer = yield select(selectors.currentPlayerSelector)
+  const currentPlayer = yield select(duckSelectors.currentPlayerSelector)
   for (let cell of blankSurroundedCells) {
     yield put(actions.colorCell(cell.x, cell.y, colorForPlayer(currentPlayer)));
   }

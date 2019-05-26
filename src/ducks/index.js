@@ -12,6 +12,8 @@ export const actions = {
 };
 
 export const selectors = {
+  currentPlayerSelector: state =>
+    matchSelectors.currentPlayerSelector(state.match),
   boardElementsSelector: state =>
     matchSelectors.boardElementsSelector(state.match)
 };
