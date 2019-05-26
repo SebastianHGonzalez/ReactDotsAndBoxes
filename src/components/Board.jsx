@@ -23,12 +23,12 @@ const Board = ({
 
   return (
     <Grid rows={height * 2 + 1} columns={width * 2 + 1}>
-      {cells.map(({ type, x, y, color }) => (
-        <Cell key={`${x}-${y}`} color={color} type={type} column={x} row={y} />
+      {cells.map(({ id, type, x, y, color }) => (
+        <Cell key={id} color={color} type={type} column={x} row={y} />
       ))}
-      {edges.map(({ type, x, y, color }) => (
+      {edges.map(({ id, type, x, y, color }) => (
         <Cell
-          key={`${x}-${y}`}
+          key={id}
           color={color}
           type={type}
           column={x}
