@@ -1,7 +1,12 @@
 import { colorForPlayer } from "./colors";
 
+export function idForCoords(x, y) {
+  return `${x}-${y}`
+}
+
 export function BoardElement(type, x, y, color) {
   return {
+    get id () {return idForCoords(x, y)},
     type,
     x,
     y,
@@ -18,6 +23,6 @@ export function adjacentPositions(x, y) {
   ]
 }
 
-export function playerScore(player, cells) {
-  return cells.filter(cell => cell.color === colorForPlayer(player)).length
+export function playerScore(player, coloredCells) {
+  return (coloredCells[colorForPlayer(player)] || []).length
 }

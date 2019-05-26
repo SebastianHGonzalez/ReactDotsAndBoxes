@@ -34,7 +34,8 @@ export const selectors = {
   boardElementsSelector: createSelector(
     cellsSelectors.cellsSelector,
     edgesSelectors.edgesSelector,
-    (cells, edges) => cells.concat(edges)
+    cellsSelectors.coloredSelector,
+    (cells, edges, colored) => ({cells, edges, colored})
   )
 };
 

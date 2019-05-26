@@ -12,7 +12,7 @@ const ScoreBoardTable = styled.div`
   display: grid;
 `;
 
-const ScoreBoard = ({ currentPlayer, totalPlayers, cells }) => (
+const ScoreBoard = ({ currentPlayer, totalPlayers, coloredCells }) => (
   <ScoreBoardTable>
     {Array.from(Array(totalPlayers).keys()).map(player => (
       <div
@@ -22,7 +22,7 @@ const ScoreBoard = ({ currentPlayer, totalPlayers, cells }) => (
           backgroundColor: colorForPlayerBackground(player)
         }}
       >
-        {playerScore(player, cells)}
+        {playerScore(player, coloredCells)}
       </div>
     ))}
   </ScoreBoardTable>
@@ -31,7 +31,7 @@ const ScoreBoard = ({ currentPlayer, totalPlayers, cells }) => (
 const mapStateToProps = state => ({
   currentPlayer: selectors.currentPlayerSelector(state),
   totalPlayers: selectors.totalPlayersSelector(state),
-  cells: selectors.boardElementsSelector(state)
+  coloredCells: selectors.boardElementsSelector(state).colored
 });
 
 export default connect(mapStateToProps)(ScoreBoard);

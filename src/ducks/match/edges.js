@@ -8,7 +8,10 @@ export const types = {
 };
 
 export const actions = {
-  colorEdge: (x, y, color) => ({ type: types.COLOR_EDGE, x, y, color }),
+  colorEdge: (x, y, color) => ({
+    type: types.COLOR_EDGE,
+    payload: BoardElement("edge", x, y, color)
+  }),
   edgeSelected: (x, y) => ({ type: types.EDGE_SELECTED, x, y })
 };
 
@@ -16,7 +19,7 @@ export const selectors = {
   edgesSelector: state => state.edges
 };
 
-const INITIAL_STATE = [];
+const INITIAL_STATE = {};
 
 function edgesReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -24,17 +27,18 @@ function edgesReducer(state = INITIAL_STATE, action) {
       return makeEdges(action.height, action.width);
 
     case types.COLOR_EDGE:
-      return state
-        .filter(edge => edge.x !== action.x || edge.y !== action.y)
-        .concat(BoardElement("edge", action.x, action.y, action.color));
-
+      return {
+        ...state,
+        [action.payload.id]: action.payload
+      } 
+      
     default:
       return state;
   }
 }
 
 function makeEdges(h, w) {
-  let edges = [];
+  let edges = {};
 
   const width = w * 2 + 1;
   const height = h * 2 + 1;
@@ -42,7 +46,9 @@ function makeEdges(h, w) {
   for (let y of Array(height).keys()) {
     for (let x of Array(width).keys()) {
       if (isValid(x, y)) {
-        edges.push(BoardElement("edge", x, y, NO_COLOR));
+        let edge = BoardElement("edge", x, y, NO_COLOR);
+
+        edges[edge.id] = edge;
       }
     }
   }

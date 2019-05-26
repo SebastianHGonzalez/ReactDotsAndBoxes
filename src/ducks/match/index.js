@@ -3,7 +3,7 @@ import { takeLatest, put, take, select } from "redux-saga/effects";
 
 import { selectors as duckSelectors } from "ducks";
 import { NO_COLOR, colorForPlayer } from "utils/colors";
-import { adjacentPositions } from "utils/board";
+import { adjacentPositions, idForCoords } from "utils/board";
 import { calculateWinner, NO_WINNER } from "utils/match";
 
 import board, {
@@ -82,9 +82,7 @@ function* matchSaga({ playerAmount, width, height }) {
 }
 
 function filterElementsAtPositions(positions, elements) {
-  return elements.filter(cell =>
-    positions.some(pos => cell.x === pos.x && cell.y === pos.y)
-  );
+  return positions.map(({x,y})=> idForCoords(x, y)).map(id => elements[id]).filter(x => x)
 }
 
 function* updateCellsAroundEdgeAt({ x, y }) {
