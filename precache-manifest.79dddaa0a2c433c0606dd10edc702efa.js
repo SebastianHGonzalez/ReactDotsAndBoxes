@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "175bd34a2c8942821a57c1ace7e94475",
+    "revision": "940fb0ec77fef4a512f2225326a83967",
     "url": "/ReactDotsAndBoxes/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ReactDotsAndBoxes/static/js/2.29e115ef.chunk.js"
   },
   {
-    "revision": "a09767c7ac84e14e69dc",
-    "url": "/ReactDotsAndBoxes/static/js/main.e8436a2d.chunk.js"
+    "revision": "c38cbb42b9c43daccc86",
+    "url": "/ReactDotsAndBoxes/static/js/main.c5e6766e.chunk.js"
   },
   {
     "revision": "e2265757bec21a98b49e",
