@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "components/Board";
 import TurnIndicator from "components/TurnIndicator";
+import ScoreBoard from "components/ScoreBoard";
 
 function Game(props) {
   return (
@@ -9,7 +10,8 @@ function Game(props) {
       style={{ padding: "1rem", width: "50vw", height: "50vw" }}
     >
       <TurnIndicator>
-        <Board height={10} width={10} />
+        <ScoreBoard />
+        <Board players={4} height={10} width={10} />
       </TurnIndicator>
     </div>
   );

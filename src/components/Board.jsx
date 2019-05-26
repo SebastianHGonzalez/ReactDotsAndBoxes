@@ -6,10 +6,10 @@ import Grid from "components/Grid";
 import { actions, selectors } from "ducks";
 import { NO_COLOR } from "utils/colors";
 
-const Board = ({ height, width, startMatch, cells, edgeSelected }) => {
+const Board = ({ players, height, width, startMatch, cells, edgeSelected }) => {
   useEffect(() => {
-    startMatch(2, height, width);
-  }, [startMatch, width, height]);
+    startMatch(players, height, width);
+  }, [startMatch, players, width, height]);
 
   return (
     <Grid rows={height * 2 + 1} columns={width * 2 + 1}>

@@ -44,7 +44,8 @@ export const selectors = {
   boardElementsSelector: state =>
     boardSelectors.boardElementsSelector(state.board),
   winnerSelector: state => state.match.winner,
-  currentPlayerSelector: state => state.turn 
+  currentPlayerSelector: state => state.turn.current,
+  totalPlayersSelector: state => state.turn.total 
 };
 
 function winnerReducer(state = NO_WINNER, action) {
@@ -66,13 +67,13 @@ export const saga = takeLatest(types.START_MATCH, matchSaga);
 
 function* matchSaga({ playerAmount, width, height }) {
   yield put(actions.initializeBoard(height, width));
-  yield put(actions.nextTurn(0));
+  yield put(actions.initializePlayers(playerAmount));
 
   while ((yield select(selectors.winnerSelector)) === NO_WINNER) {
     const { x, y } = yield take(types.EDGE_SELECTED);
     yield put(actions.colorEdge(x, y, "black"));
 
-    yield updateCellsAroundEdgeAt({ playerAmount, x, y });
+    yield updateCellsAroundEdgeAt({ x, y });
 
     yield updateWinner();
   }
@@ -86,7 +87,7 @@ function filterElementsAtPositions(positions, elements) {
   );
 }
 
-function* updateCellsAroundEdgeAt({ playerAmount, x, y }) {
+function* updateCellsAroundEdgeAt({ x, y }) {
   const cells = yield select(selectors.cellsSelector);
   const adjCellPos = adjacentPositions(x, y);
 
@@ -109,7 +110,7 @@ function* updateCellsAroundEdgeAt({ playerAmount, x, y }) {
   }
 
   if(!blankSurroundedCells.length) {
-    yield put(actions.nextTurn((currentPlayer + 1) % playerAmount))
+    yield put(actions.nextTurn())
   }
 
   return;

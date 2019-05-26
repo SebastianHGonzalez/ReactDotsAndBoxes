@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { selectors } from "ducks";
 import { colorForPlayerBackground } from "utils/colors";
 
-const TurnIndicator = styled.div.attrs(({ children, playerColor }) => ({
+const TurnIndicator = styled.div.attrs(({ playerColor }) => ({
   style: {
     backgroundColor: playerColor
   }
