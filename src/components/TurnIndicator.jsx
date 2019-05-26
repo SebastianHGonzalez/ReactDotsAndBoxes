@@ -12,7 +12,9 @@ const TurnIndicator = styled.div.attrs(({ playerColor }) => ({
   width: 100%;
   height: 100%;
   transition: background-color 300ms cubic-bezier(0, 0.5, 0.5, 1);
-`;
+  display: grid;
+  grid-template-rows: 2rem;
+  `;
 
 const mapStateToProps = state => ({
   playerColor: colorForPlayerBackground(selectors.currentPlayerSelector(state))
