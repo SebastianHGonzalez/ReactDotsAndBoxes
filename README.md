@@ -1,13 +1,13 @@
 # Dots and Boxes
 
-Simple game implemented in react using redux, sagas and styled-components
+Simple game implemented in react using redux, sagas and styled-components.
 
 Try it [here](https://SebastianHGonzalez.github.io/ReactDotsAndBoxes)
 
 ## Table of Contents
 
 - [Motivation](#Motivation)
-- [Rules](#Game Rules)
+- [Game Rules](#Game)
 - [Development](#Development)
 
 ## Motivation
