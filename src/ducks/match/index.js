@@ -71,7 +71,7 @@ function* matchSaga({ playerAmount, width, height }) {
     const { x, y } = yield take(types.EDGE_SELECTED);
     yield put(actions.colorEdge(x, y, "black"));
 
-    yield updateCellsAroundEdgeAt({ x, y });
+    yield updateCellsAroundEdgeAt({ playerAmount, x, y });
 
     yield updateWinner();
   }
@@ -85,7 +85,7 @@ function filterElementsAtPositions(positions, elements) {
   );
 }
 
-function* updateCellsAroundEdgeAt({ x, y }) {
+function* updateCellsAroundEdgeAt({ playerAmount, x, y }) {
   const cells = yield select(selectors.cellsSelector);
   const adjCellPos = adjacentPositions(x, y);
 
@@ -105,6 +105,10 @@ function* updateCellsAroundEdgeAt({ x, y }) {
   const currentPlayer = yield select(selectors.currentPlayerSelector)
   for (let cell of blankSurroundedCells) {
     yield put(actions.colorCell(cell.x, cell.y, colorForPlayer(currentPlayer)));
+  }
+
+  if(!blankSurroundedCells.length) {
+    yield put(actions.nextTurn((currentPlayer + 1) % playerAmount))
   }
 
   return;
