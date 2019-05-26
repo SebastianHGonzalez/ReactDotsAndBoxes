@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ReactDotsAndBoxes/static/css/main.7adb69ac.chunk.css",
-    "main.js": "/ReactDotsAndBoxes/static/js/main.277586d1.chunk.js",
-    "main.js.map": "/ReactDotsAndBoxes/static/js/main.277586d1.chunk.js.map",
+    "main.css": "/ReactDotsAndBoxes/static/css/main.f4e97c57.chunk.css",
+    "main.js": "/ReactDotsAndBoxes/static/js/main.821a625a.chunk.js",
+    "main.js.map": "/ReactDotsAndBoxes/static/js/main.821a625a.chunk.js.map",
     "runtime~main.js": "/ReactDotsAndBoxes/static/js/runtime~main.50c72c63.js",
     "runtime~main.js.map": "/ReactDotsAndBoxes/static/js/runtime~main.50c72c63.js.map",
-    "static/js/2.084b9081.chunk.js": "/ReactDotsAndBoxes/static/js/2.084b9081.chunk.js",
-    "static/js/2.084b9081.chunk.js.map": "/ReactDotsAndBoxes/static/js/2.084b9081.chunk.js.map",
+    "static/js/2.3cbf256e.chunk.js": "/ReactDotsAndBoxes/static/js/2.3cbf256e.chunk.js",
+    "static/js/2.3cbf256e.chunk.js.map": "/ReactDotsAndBoxes/static/js/2.3cbf256e.chunk.js.map",
     "index.html": "/ReactDotsAndBoxes/index.html",
-    "precache-manifest.4a0ee072c5267c55e4d618acfbe13ca4.js": "/ReactDotsAndBoxes/precache-manifest.4a0ee072c5267c55e4d618acfbe13ca4.js",
+    "precache-manifest.12560cc5de98d0b0c8c97ad260ea4f5d.js": "/ReactDotsAndBoxes/precache-manifest.12560cc5de98d0b0c8c97ad260ea4f5d.js",
     "service-worker.js": "/ReactDotsAndBoxes/service-worker.js",
-    "static/css/main.7adb69ac.chunk.css.map": "/ReactDotsAndBoxes/static/css/main.7adb69ac.chunk.css.map"
+    "static/css/main.f4e97c57.chunk.css.map": "/ReactDotsAndBoxes/static/css/main.f4e97c57.chunk.css.map"
   }
 }
