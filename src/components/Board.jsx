@@ -6,7 +6,7 @@ import Cell from "components/Cell";
 import Grid from "components/Grid";
 import { actions, selectors } from "ducks";
 
-const Board = ({ height, width, initializeBoard, cells }) => {
+const Board = ({ height, width, initializeBoard, cells, edgeSelected }) => {
   useEffect(() => {
     initializeBoard(width, height);
   }, [initializeBoard, width, height]);
@@ -22,6 +22,7 @@ const Board = ({ height, width, initializeBoard, cells }) => {
             <ColoredBackground
               color={color}
               borderColor={type === "cell" ? "red" : "gray"}
+              onClick={type === "edge" ? () => edgeSelected(x, y) : undefined}
             />
           </Cell>
         ))}
@@ -32,7 +33,8 @@ const Board = ({ height, width, initializeBoard, cells }) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    initializeBoard: (h, w) => dispatch(actions.initializeBoard(h, w))
+    initializeBoard: (h, w) => dispatch(actions.initializeBoard(h, w)),
+    edgeSelected: (...args) => dispatch(actions.edgeSelected(...args))
   };
 }
 

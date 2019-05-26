@@ -3,10 +3,14 @@ import { BoardElement } from "utils/board";
 import { NO_COLOR } from "utils/colors";
 
 export const types = {
-  COLOR_EDGE: "edges/COLOR_EDGE"
+  COLOR_EDGE: "edges/COLOR_EDGE",
+  EDGE_SELECTED: "edges/EDGE_SELECTED",
 };
 
-export const actions = {};
+export const actions = {
+  colorEdge: (x, y, color) => ({type: types.COLOR_EDGE, x, y, color}),
+  edgeSelected: (x,y) => ({type: types.EDGE_SELECTED, x, y}),
+};
 
 export const selectors = {
   edgesSelector: state => state.edges

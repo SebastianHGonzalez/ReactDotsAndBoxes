@@ -22,9 +22,9 @@ function cellsReducer(state = INITIAL_STATE, action) {
       return makeCells(action.height, action.width);
     case types.COLOR_CELL:
       return state
-        .filter(cell => cell.x === action.x && cell.y === action.y)
+        .filter(cell => cell.x !== action.x || cell.y !== action.y)
         .concat(
-          BoardElement("cell", action.position.x, action.position.y, action.color)
+          BoardElement("cell", action.x, action.y, action.color)
         );
     default:
       return state;
